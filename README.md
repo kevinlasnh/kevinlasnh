@@ -1,5 +1,11 @@
 ## Hi there 👋
 
+I'm kevinlasnh, but you can just call me Kevin.
+
+Welcome to my digital corner! 🚀 I'm glad you're here.
+
+Feel free to explore my repositories—I've tucked away a few interesting projects and experiments that I think you'll enjoy. Happy hunting! ✨
+
 <!--
 **kevinlasnh/kevinlasnh** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
