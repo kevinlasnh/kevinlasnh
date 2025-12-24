@@ -1,9 +1,9 @@
-Hi there 👋
+## Hi there 👋
 
 > 📚 **Currently:** Preparing for final exams (Dec 2025)  
 > Limited availability for projects and contributions. Will be back in [2025.1.9]!
 
-I'm kevinlasnh, but you can just call me Kevin.
+## I'm kevinlasnh, but you can just call me Kevin.
 
 Welcome to my digital corner! 🚀 I'm glad you're here.
 
