@@ -20,21 +20,18 @@
 
 ## 📊 GitHub Stats
 
-<table align="center" width="100%">
-  <tr>
-    <td colspan="2">
-      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=algolia"/>
-    </td>
-    <td width="50%">
-      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=algolia"/>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
+</p>
+
+<p align="center">
+  <a href="https://github.com/anuraghazra/github-readme-stats">
+    <img alt="kevinlasnh's Github Stats" src="https://github-readme-stats.vercel.app/api/?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF" height="192px"/>
+  </a>
+  <a href="https://github.com/anuraghazra/github-readme-stats">
+    <img alt="kevinlasnh's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&theme=react&hide_border=true&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF" height="192px"/>
+  </a>
+</p>
 
 ## 🏆 GitHub Trophies
 
