@@ -25,13 +25,13 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <a href="https://github.com/kevinlasnh/github-readme-stats"><img width="56.51%" align="center" alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></a>&nbsp;<a href="https://github.com/kevinlasnh/github-readme-stats"><img width="40.99%" align="center" alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></a>
+  <a href="https://github.com/kevinlasnh/github-readme-stats"><picture><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=24292F&ring_color=0969DA&border_color=D0D7DE&border_radius=6"/><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&ring_color=00D4FF&border_color=FFFFFF&border_radius=6"/><img width="56.51%" align="center" alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&ring_color=00D4FF&border_color=FFFFFF&border_radius=6"/></picture></a>&nbsp;<a href="https://github.com/kevinlasnh/github-readme-stats"><picture><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=24292F&border_color=D0D7DE&border_radius=6"/><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/><img width="40.99%" align="center" alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></picture></a>
 </p>
 
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1&no-bg=true"/>
 </p>
 
 ## 🐍 Contribution Snake
@@ -47,7 +47,11 @@
 ## 📈 Activity Graph
 
 <p align="center">
-  <img src="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=0D1117&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=57606A&line=0969DA&point=1E90FF&area=true&area_color=87CEEB&hide_title=true&border_color=D0D7DE&radius=8&height=300&grid=true" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" />
+    <img src="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
+  </picture>
 </p>
 
 ## 🤝 Connect with Me
