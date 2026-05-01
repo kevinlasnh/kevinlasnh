@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=for-the-badge&color=00bfff" alt="Profile Views"/>
+  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=plastic&color=00BFFF" alt="Profile Views"/>
 </p>
 
 ## 🛠️ Tech Stack
@@ -49,11 +49,11 @@
 ## 🤝 Connect with Me
 
 <p align="center">
-  <a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white"/></a>
+  <a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=plastic&logo=x&logoColor=white"/></a>
   &nbsp;
-  <a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=plastic&logo=gmail&logoColor=white"/></a>
   &nbsp;
-  <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white"/></a>
+  <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=plastic&logo=wechat&logoColor=white"/></a>
 </p>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,35:1E90FF,70:00BFFF,100:87CEEB&height=105&section=footer"/>
