@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=plastic&color=00BFFF" alt="Profile Views"/>
+  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=plastic&color=181717" alt="Profile Views"/>
 </p>
 
 ## 🛠️ Tech Stack
@@ -49,9 +49,9 @@
 ## 🤝 Connect with Me
 
 <p align="center">
-  <a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=plastic&logo=x&logoColor=white"/></a>
+  <a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/X-000000?style=plastic&logo=x&logoColor=white"/></a>
   &nbsp;
-  <a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=plastic&logo=gmail&logoColor=white"/></a>
+  <a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=plastic&logo=gmail&logoColor=white"/></a>
   &nbsp;
   <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=plastic&logo=wechat&logoColor=white"/></a>
 </p>
