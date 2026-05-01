@@ -25,8 +25,12 @@
 </p>
 
 <p align="center">
-  <img width="49%" src="./profile-summary-card-output/algolia/3-stats.svg" alt="GitHub Stats"/>
-  <img width="49%" src="./profile-summary-card-output/algolia/2-most-commit-language.svg" alt="Top Languages"/>
+  <a href="https://github.com/kevinlasnh/github-readme-stats">
+    <img alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF" height="195"/>
+  </a>
+  <a href="https://github.com/kevinlasnh/github-readme-stats">
+    <img alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&theme=react&hide_border=true&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF" height="195"/>
+  </a>
 </p>
 
 ## 🏆 GitHub Trophies
