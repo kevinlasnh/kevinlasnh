@@ -1,4 +1,4 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1e90ff,50:00bfff,100:87ceeb&height=120&section=header"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,35:1E90FF,70:00BFFF,100:87CEEB&height=105&section=header"/>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
@@ -56,4 +56,4 @@
   <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white"/></a>
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1e90ff,50:00bfff,100:87ceeb&height=120&section=footer"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,35:1E90FF,70:00BFFF,100:87CEEB&height=105&section=footer"/>
