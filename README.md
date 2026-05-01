@@ -20,17 +20,21 @@
 
 ## 📊 GitHub Stats
 
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
-</div>
-
-<br/>
-
-<div align="center">
-  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=algolia"/>
-  &nbsp;&nbsp;
-  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=algolia"/>
-</div>
+<table align="center" width="100%">
+  <tr>
+    <td colspan="2">
+      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=algolia"/>
+    </td>
+    <td width="50%">
+      <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=algolia"/>
+    </td>
+  </tr>
+</table>
 
 ## 🏆 GitHub Trophies
 
