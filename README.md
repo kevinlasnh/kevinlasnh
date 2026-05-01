@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&random=false&width=800&lines=Hi%2C+welcome!+I'm+kevinlasnh!;Agent+Architect+%7C+Robotics+Engineer+%7C+Lifelong+Learner;Building+intelligent+systems+with+LLM+%26+VLA;MyGO!!!!!+%C2%B7+Ave+Mujica+%C2%B7+BanG+Dream!+%F0%9F%8E%B8%E2%9C%A8;Girls+Band+Cry+%F0%9F%8E%B8%F0%9F%8E%A4%F0%9F%8E%B5%F0%9F%8E%B9%F0%9F%A5%81" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&random=false&width=800&lines=Hi%2C+welcome!+I'm+kevinlasnh!;Agent+Architect+%7C+Robotics+Engineer+%7C+Lifelong+Learner;Building+intelligent+systems+with+LLM+%26+VLA;MyGO!!!!!+%C2%B7+Ave+Mujica+%C2%B7+BanG+Dream!+%F0%9F%8E%B8%E2%9C%A8;Girls+Band+Cry+%F0%9F%8E%B8%F0%9F%8E%A4%F0%9F%8E%B9%F0%9F%8E%B8%F0%9F%A5%81" alt="Typing SVG" />
   </a>
 </p>
 
