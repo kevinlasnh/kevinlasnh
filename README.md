@@ -1,4 +1,8 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,35:1E90FF,70:00BFFF,100:87CEEB&height=105&section=header"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,25:1E90FF,50:E6F7FF,75:00BFFF,100:0D1117&height=105&section=header" />
+  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF,25:87CEEB,50:E6F7FF,75:00BFFF,100:FFFFFF&height=105&section=header" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,25:1E90FF,50:E6F7FF,75:00BFFF,100:0D1117&height=105&section=header" alt="" />
+</picture>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
@@ -56,4 +60,8 @@
   <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=plastic&logo=wechat&logoColor=white"/></a>
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,35:1E90FF,70:00BFFF,100:87CEEB&height=105&section=footer"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,25:1E90FF,50:E6F7FF,75:00BFFF,100:0D1117&height=105&section=footer" />
+  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF,25:87CEEB,50:E6F7FF,75:00BFFF,100:FFFFFF&height=105&section=footer" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,25:1E90FF,50:E6F7FF,75:00BFFF,100:0D1117&height=105&section=footer" alt="" />
+</picture>
