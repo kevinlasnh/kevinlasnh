@@ -1,13 +1,13 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:833ab4,50:fd1d1d,100:fcb045&height=200&section=header"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:833ab4,50:fd1d1d,100:fcb045&height=120&section=header"/>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=833AB4&center=true&vCenter=true&random=false&width=800&lines=kevinlasnh;Agent+Architect+%7C+Robotics+Engineer+%7C+Lifelong+Learner;Building+intelligent+systems+with+LLM+%26+VLA;MyGO!!!!!+%C2%B7+Ave+Mujica+%C2%B7+BanG+Dream!+%F0%9F%8E%B8%E2%9C%A8" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=FF6EC7&center=true&vCenter=true&random=false&width=800&lines=Hi%2C+welcome!+I'm+kevinlasnh;Agent+Architect+%7C+Robotics+Engineer+%7C+Lifelong+Learner;Building+intelligent+systems+with+LLM+%26+VLA;MyGO!!!!!+%C2%B7+Ave+Mujica+%C2%B7+BanG+Dream!+%F0%9F%8E%B8%E2%9C%A8" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=for-the-badge&color=833ab4" alt="Profile Views"/>
+  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=for-the-badge&color=ff6ec7" alt="Profile Views"/>
 </p>
 
 ---
@@ -37,7 +37,13 @@
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=kevinlasnh&show_icons=true&theme=tokyonight&hide_border=true&count_private=true"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=tokyonight"/>
+</div>
+
+<br/>
+
+<div align="center">
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=tokyonight"/>
   &nbsp;&nbsp;
   <img height="180em" src="https://streak-stats.demolab.com/?user=kevinlasnh&theme=tokyonight&hide_border=true"/>
 </div>
@@ -45,7 +51,9 @@
 <br/>
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kevinlasnh&layout=compact&theme=tokyonight&hide_border=true&langs_count=8"/>
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=kevinlasnh&theme=tokyonight"/>
+  &nbsp;&nbsp;
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=tokyonight"/>
 </div>
 
 ---
