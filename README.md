@@ -27,7 +27,7 @@
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1&no-bg=true"/>
+  <img width="97.5%" src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1&no-bg=true"/>
 </p>
 
 ## 🐍 Contribution Snake
