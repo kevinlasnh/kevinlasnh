@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/wave-header-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/wave-header-light.svg" />
-  <img width="100%" src="./assets/wave-header-dark.svg" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-wave-header-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-wave-header-light.svg" />
+  <img width="100%" src="./assets/profile-wave-header-dark.svg" alt="" />
 </picture>
 
 <p align="center">
@@ -61,7 +61,7 @@
 </p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/wave-footer-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/wave-footer-light.svg" />
-  <img width="100%" src="./assets/wave-footer-dark.svg" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-wave-footer-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-wave-footer-light.svg" />
+  <img width="100%" src="./assets/profile-wave-footer-dark.svg" alt="" />
 </picture>
