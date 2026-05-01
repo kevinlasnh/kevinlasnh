@@ -43,7 +43,7 @@
 ## 📈 Activity Graph
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=kevinlasnh&theme=github-compact&hide_border=true" alt="Activity Graph"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=kevinlasnh&bg_color=0D1117&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
 </p>
 
 ## 🤝 Connect with Me
