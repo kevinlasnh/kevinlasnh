@@ -24,10 +24,18 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
 </div>
 
+<br/>
+
+<div align="center">
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=algolia"/>
+  &nbsp;&nbsp;
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=algolia"/>
+</div>
+
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&no-frame=true&no-bg=true&margin-w=4&row=1"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1"/>
 </p>
 
 ## 🐍 Contribution Snake
