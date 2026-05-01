@@ -16,33 +16,7 @@
 
 ## 🛠️ Tech Stack
 
-<p align="center">
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" />
-  &nbsp;
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/java-icon.svg" alt="Java" />
-  &nbsp;
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/ts-icon.svg" alt="TypeScript" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=rust" alt="Rust" />
-  &nbsp;
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=flutter" alt="Flutter" />
-  &nbsp;
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/docker-icon.svg" alt="Docker" />
-  <br />
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=linux" alt="Linux" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=git" alt="Git" />
-  &nbsp;
-  <img width="48" height="48" src="https://techstack-generator.vercel.app/github-icon.svg" alt="GitHub" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=vscode" alt="VS Code" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=latex" alt="LaTeX" />
-  &nbsp;
-  <img width="48" height="48" src="https://skillicons.dev/icons?i=ros" alt="ROS" />
-</p>
+<p align="center"><picture><img width="48" height="48" src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" /></picture>&nbsp;<picture><img width="48" height="48" src="https://techstack-generator.vercel.app/java-icon.svg" alt="Java" /></picture>&nbsp;<picture><img width="48" height="48" src="https://techstack-generator.vercel.app/ts-icon.svg" alt="TypeScript" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=rust" alt="Rust" /></picture>&nbsp;<picture><img width="48" height="48" src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=flutter" alt="Flutter" /></picture>&nbsp;<picture><img width="48" height="48" src="https://techstack-generator.vercel.app/docker-icon.svg" alt="Docker" /></picture><br /><picture><img width="48" height="48" src="https://skillicons.dev/icons?i=linux" alt="Linux" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=git" alt="Git" /></picture>&nbsp;<picture><img width="48" height="48" src="https://techstack-generator.vercel.app/github-icon.svg" alt="GitHub" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=vscode" alt="VS Code" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=latex" alt="LaTeX" /></picture>&nbsp;<picture><img width="48" height="48" src="https://skillicons.dev/icons?i=ros" alt="ROS" /></picture></p>
 
 ## 📊 GitHub Stats
 
