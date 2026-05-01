@@ -21,16 +21,7 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img width="100%" src="./profile-summary-card-output/algolia/0-profile-details.svg" alt="Profile Details"/>
-</p>
-
-<p align="center">
-  <a href="https://github.com/kevinlasnh/github-readme-stats">
-    <img align="center" alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6" height="200"/>
-  </a>
-  <a href="https://github.com/kevinlasnh/github-readme-stats">
-    <img align="center" alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=320&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6" height="200"/>
-  </a>
+  <a href="https://github.com/kevinlasnh/github-readme-stats"><img width="57.38%" align="center" alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></a><a href="https://github.com/kevinlasnh/github-readme-stats"><img width="41.62%" align="center" alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=0D1117&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></a>
 </p>
 
 ## 🏆 GitHub Trophies
