@@ -10,16 +10,6 @@
   <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=for-the-badge&color=00bfff" alt="Profile Views"/>
 </p>
 
-## 🙋‍♂️ About Me
-
-> Freelance developer building intelligent systems with LLM agents and robotics
-
-- 🔭 Currently working on: `Building LLM-powered autonomous agents and robotics systems`
-- 🌱 Currently learning: `Vision-Language-Action models and multi-agent orchestration`
-- 💬 Ask me about: `LLM Agents, Robotics, VLA, Agent Architecture`
-- 📫 How to reach me: `1114087661.kevin@gmail.com`
-- ⚡ Fun fact: `BanG Dream! · MyGO!!!!! · Ave Mujica · Girls Band Cry 🎸✨`
-
 ## 🛠️ Tech Stack
 
 <p align="center">
@@ -32,22 +22,6 @@
 
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=kevinlasnh&theme=algolia"/>
-</div>
-
-<br/>
-
-<div align="center">
-  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=kevinlasnh&theme=algolia"/>
-  &nbsp;&nbsp;
-  <img height="180em" src="https://streak-stats.demolab.com/?user=kevinlasnh&theme=algolia&hide_border=true"/>
-</div>
-
-<br/>
-
-<div align="center">
-  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=kevinlasnh&theme=algolia"/>
-  &nbsp;&nbsp;
-  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=kevinlasnh&theme=algolia"/>
 </div>
 
 ## 🏆 GitHub Trophies
