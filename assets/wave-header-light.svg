@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 105" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="edge-blue" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.18" stop-color="#DFF9FF"/>
+      <stop offset="0.42" stop-color="#8EDCFF"/>
+      <stop offset="0.62" stop-color="#38BDF8"/>
+      <stop offset="0.82" stop-color="#DFF9FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="height-blue" x1="0" y1="0" x2="0" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FDFF"/>
+      <stop offset="0.42" stop-color="#A7EFFF"/>
+      <stop offset="1" stop-color="#1D9FE7"/>
+    </linearGradient>
+    <linearGradient id="center-mask" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="black"/>
+      <stop offset="0.2" stop-color="white"/>
+      <stop offset="0.8" stop-color="white"/>
+      <stop offset="1" stop-color="black"/>
+    </linearGradient>
+    <linearGradient id="crest" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.3" stop-color="#BAF7FF"/>
+      <stop offset="0.55" stop-color="#FFFFFF"/>
+      <stop offset="0.72" stop-color="#7DDCFF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <mask id="fade-sides">
+      <rect width="1440" height="105" fill="url(#center-mask)"/>
+    </mask>
+    <filter id="soft-glow" x="-4%" y="-35%" width="108%" height="170%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <path d="M0 0H1440V70C1260 18 1080 112 900 68C720 24 540 18 360 66C180 114 80 56 0 78Z" fill="url(#edge-blue)"/>
+  <g mask="url(#fade-sides)">
+    <path d="M0 0H1440V70C1260 18 1080 112 900 68C720 24 540 18 360 66C180 114 80 56 0 78Z" fill="url(#height-blue)" opacity="0.58"/>
+    <path d="M0 78C80 56 180 114 360 66C540 18 720 24 900 68C1080 112 1260 18 1440 70" fill="none" stroke="url(#crest)" stroke-width="12" stroke-linecap="round" opacity="0.45" filter="url(#soft-glow)"/>
+    <path d="M0 78C80 56 180 114 360 66C540 18 720 24 900 68C1080 112 1260 18 1440 70" fill="none" stroke="url(#crest)" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+  </g>
+</svg>
