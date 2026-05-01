@@ -17,9 +17,31 @@
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,java,ts,rust,cpp,flutter,docker,linux,git,github,vscode,latex,ros&perline=7" />
-  </a>
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" />
+  &nbsp;
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/java-icon.svg" alt="Java" />
+  &nbsp;
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/ts-icon.svg" alt="TypeScript" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=rust" alt="Rust" />
+  &nbsp;
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=flutter" alt="Flutter" />
+  &nbsp;
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/docker-icon.svg" alt="Docker" />
+  <br />
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=linux" alt="Linux" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=git" alt="Git" />
+  &nbsp;
+  <img width="48" height="48" src="https://techstack-generator.vercel.app/github-icon.svg" alt="GitHub" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=vscode" alt="VS Code" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=latex" alt="LaTeX" />
+  &nbsp;
+  <img width="48" height="48" src="https://skillicons.dev/icons?i=ros" alt="ROS" />
 </p>
 
 ## 📊 GitHub Stats
