@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C25:1E90FF%2C50:E6F7FF%2C75:00BFFF%2C100:0D1117&height=105&section=header" />
-  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF%2C25:87CEEB%2C50:E6F7FF%2C75:00BFFF%2C100:FFFFFF&height=105&section=header" />
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C25:1E90FF%2C50:E6F7FF%2C75:00BFFF%2C100:0D1117&height=105&section=header" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C18:0A2A5E%2C45:1E90FF%2C62:00BFFF%2C82:0A2A5E%2C100:0D1117&height=105&section=header" />
+  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF%2C18:CFF4FF%2C45:87CEEB%2C62:38BDF8%2C82:CFF4FF%2C100:FFFFFF&height=105&section=header" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C18:0A2A5E%2C45:1E90FF%2C62:00BFFF%2C82:0A2A5E%2C100:0D1117&height=105&section=header" alt="" />
 </picture>
 
 <p align="center">
@@ -61,7 +61,7 @@
 </p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C25:1E90FF%2C50:E6F7FF%2C75:00BFFF%2C100:0D1117&height=105&section=footer" />
-  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF%2C25:87CEEB%2C50:E6F7FF%2C75:00BFFF%2C100:FFFFFF&height=105&section=footer" />
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C25:1E90FF%2C50:E6F7FF%2C75:00BFFF%2C100:0D1117&height=105&section=footer" alt="" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C18:0A2A5E%2C45:1E90FF%2C62:00BFFF%2C82:0A2A5E%2C100:0D1117&height=105&section=footer" />
+  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=0:FFFFFF%2C18:CFF4FF%2C45:87CEEB%2C62:38BDF8%2C82:CFF4FF%2C100:FFFFFF&height=105&section=footer" />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117%2C18:0A2A5E%2C45:1E90FF%2C62:00BFFF%2C82:0A2A5E%2C100:0D1117&height=105&section=footer" alt="" />
 </picture>
