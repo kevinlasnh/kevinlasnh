@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=kevinlasnh&style=plastic&color=181717" alt="Profile Views"/>
+  <img height="18" src="https://komarev.com/ghpvc/?username=kevinlasnh&style=plastic&color=181717" alt="Profile Views"/>
 </p>
 
 ## 🛠️ Tech Stack
