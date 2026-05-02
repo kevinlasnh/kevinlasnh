@@ -52,13 +52,7 @@
 
 ## 🤝 Connect with Me
 
-<p align="center">
-  <a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/X-000000?style=plastic&logo=x&logoColor=white"/></a>
-  &nbsp;
-  <a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=plastic&logo=gmail&logoColor=white"/></a>
-  &nbsp;
-  <a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=plastic&logo=wechat&logoColor=white"/></a>
-</p>
+<p align="center"><a href="https://x.com/kevinlasnh"><img src="https://img.shields.io/badge/X-000000?style=plastic&logo=x&logoColor=white"/></a>&#8194;<a href="mailto:1114087661.kevin@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=plastic&logo=gmail&logoColor=white"/></a>&#8194;<a href="./assets/wechat-qr.jpg"><img src="https://img.shields.io/badge/WeChat-07C160?style=plastic&logo=wechat&logoColor=white"/></a></p>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/capsule-wave-footer-dark-fast.svg" />
