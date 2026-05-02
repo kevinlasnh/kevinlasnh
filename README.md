@@ -46,7 +46,7 @@
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=57606A&line=0969DA&point=1E90FF&area=true&area_color=87CEEB&hide_title=true&border_color=D0D7DE&radius=8&height=300&grid=true" />
     <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" />
-    <img src="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
+    <img width="97.5%" src="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
   </picture>
 </p>
 
