@@ -1,0 +1,10 @@
+# Ignore repository-local hidden directories by default.
+.*/
+
+# GitHub Actions are part of this repository and must stay tracked.
+!.github/
+!.github/**
+
+# Repository Agent Markdown is local-only.
+/AGENTS.md
+/CLAUDE.md
