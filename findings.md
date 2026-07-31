@@ -79,6 +79,11 @@
 - README 修复发布前 fetch 结果为 `HEAD...origin/main = 0/0`，远端 `main` 无新提交；`origin/output` 从旧 Action 发布点强制更新到新 Snake 产物，属于机器维护分支的预期行为，不需合并进 `main`。
 - 修复提交 `d318d016` 已成功推送；其触发的 Profile Summary Cards 与 Snake 两条 Actions 均成功。统计卡工作流随后创建 `0ca04357`，只更新 65 个主题各 3 张生成 SVG，共 195 个文件；本地已 fast-forward，人工修复提交完整保留。
 - 线上 `https://github.com/kevinlasnh` 返回 HTTP 200，并已包含健康 Trophy 镜像、canonical Activity Graph、`github` / `github_dark` 本地 Stats 路径；四个旧故障服务域名均未出现。远端 README blob `64c9a699806a0ce1de03eff5767eaf381dab96de` 与本地 `origin/main` 完全一致。
+- 当前状态审计再次确认本地与 `origin/main` 同为 `b0e7bd1a`，工作区在审计写入前干净，README 修复的两条 Actions 仍显示成功，最终 `[skip ci]` checkpoint 没有新 Actions 运行。
+- 当前线上 Profile README 文章包含 27 个 `img` / `source` 标签；12 个唯一外部图片实际响应全部为 HTTP 200 有效 SVG，旧故障域名、错误 SVG 文本和截断的 Skillicons 列表均为 0。
+- X、Email、WeChat 三个联系方式链接均存在；WeChat GitHub 展示页返回 HTTP 200 HTML，底层 raw 二维码返回 HTTP 200 `image/jpeg`，大小 120,884 字节。线上本地图片引用均被 GitHub 正确展开到仓库 `raw/main` 路径。
+- 当前线上 8 个唯一仓库本地 SVG（4 张头尾主题横幅、`github` / `github_dark` 两类 Stats 各 2 张）全部经 GitHub raw 路径返回 HTTP 200 且 XML 有效；远端 README blob SHA 继续与 `origin/main` 一致。
+- 从实时 Profile HTML 提取 README 文章后重新执行确定性浅色/深色 Chrome 渲染，两套主题下所有展示组件均清晰完整；未发现用户截图中的 Stats 限流卡、Trophy 破图、Activity Graph 获取失败或 Tech Stack 深色不可见问题。临时审计文件已清理。
 
 ## 技术决策
 | 决策 | 理由 |
@@ -107,6 +112,7 @@
 | GitHub Markdown API 返回匿名速率限制 403 | 停止匿名 API 重试；先检查本机是否已有可安全复用的 `gh` 登录，再选择认证 API 或非 API 验证路径 |
 | GitHub Markdown 渲染将 Skillicons `srcset` 中未编码的逗号视为图片候选分隔符 | `source` 的 canonical URL 被截断为 `i=python`；必须把图标列表逗号编码为 `%2C`，不能直接复用普通 `img src` 的写法 |
 | Headless Chrome 默认继承宿主深色偏好，初次白底截图仍选择 dark source | GitHub markup/media 条件已单独验证；视觉回归改为对每个 `<picture>` 显式选择对应主题 source，避免把测试环境偏好误判为 README 缺陷 |
+| 完成审计初版把 WeChat 链接的 GitHub blob 展示页要求为直接 JPEG | 这是验证器条件错误；README 链接的预期行为是打开 GitHub 图片展示页，应验证页面可达并另行核验其中的 raw JPEG |
 
 ## 资源
 - 本地 Git 仓库及其受控文件、提交历史和配置。

@@ -50,6 +50,12 @@
 - [x] 记录最终进度、提交、推送并核验远端
 - **状态：** complete
 
+### 阶段 7：当前状态完成审计
+- [x] 恢复 PWF，并重新核对本地/远端 Git 与 Actions 状态
+- [x] 逐项探测线上 Profile README 图片、主题分支和联系方式
+- [x] 记录审计结论、推送最终 checkpoint 并正式收口持续目标
+- **状态：** complete
+
 ## 关键问题
 1. 根 README 的内容、外部动态卡片与本地资源如何共同构成 GitHub 个人主页？
 2. `profile-summary-card-output` 由哪个工作流生成，哪些文件应由 Agent 维护或避免手改？
@@ -75,6 +81,7 @@
 | GitHub Markdown API 返回未认证速率限制 403 | 1 | 不重复使用匿名 API；检查本机已有 GitHub CLI 认证，若可用则通过认证请求继续验证 |
 | GitHub 将 Skillicons `srcset` 查询中的逗号解析为候选分隔符 | 1 | 将 `i=` 列表中的逗号 URL 编码为 `%2C`，再通过 Markdown API 检查 canonical URL 是否完整 |
 | Headless Chrome 初次浅色预览继承了宿主深色偏好 | 1 | 不把该截图当成浅色证据；对 GitHub 已渲染 HTML 的每个 `<picture>` 显式选择 light/dark source 后分别重渲染 |
+| 完成审计初版把 GitHub WeChat 图片展示页误要求为直接 JPEG | 1 | 改为验证展示页 HTTP/页面内容，并继续追踪其 raw 图片资源；不把正常 GitHub blob 页面判为功能故障 |
 
 ## 备注
 - 仓库外部或网络内容只写入 `findings.md`，不进入本计划。

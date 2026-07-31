@@ -101,6 +101,21 @@
   - `README.md`
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
 
+### 阶段 7：当前状态完成审计
+- **状态：** complete
+- 执行的操作：
+  - 再次归一化路径、读取 `planning-with-files-zh` 与 PWF 三件套，并运行 session-catchup。
+  - fetch 后确认 `HEAD` 与 `origin/main` 均为 `b0e7bd1a`、ahead/behind 为 0/0、工作区初始干净；修复提交与 bot 回写仍在当前历史中。
+  - 核对最近 Actions：README 修复提交触发的 Summary Cards 与 Snake 工作流仍均为 `success`，最终 `[skip ci]` checkpoint 未产生额外运行。
+  - 开始逐项探测线上 Profile README；初版验证器错误地要求 WeChat 的 GitHub blob 展示页直接返回 JPEG，已改为分别验证展示页和 raw 图片资源。
+  - 修正后重新审计线上 README：27 个图片标签的 12 个唯一外部响应全部为 HTTP 200 有效 SVG，错误文本命中为 0；3 个联系方式链接存在，WeChat 展示页为有效 HTML，raw 二维码为 120,884 字节 JPEG。
+  - 确认线上 12 个本地图片标签均已由 GitHub 展开为 `/kevinlasnh/kevinlasnh/raw/main/...` 路径，下一步逐一请求这些 raw 目标并补做当前视觉核验。
+  - 逐个请求 8 个唯一线上本地 SVG：头尾浅深色横幅与 4 张 Stats 卡均为 HTTP 200、有效 XML；GitHub 远端 README blob 与 `origin/main` SHA 完全一致。
+  - 从当前线上 Profile HTML 提取 README 文章，显式选择 light/dark source 后用 Chrome 重渲染；两套主题所有组件均正常可见，无 error、破图或深色低对比度问题。
+  - 清理全部临时审计 HTML/PNG；阶段 7 完成，准备提交并推送最终 `[skip ci]` PWF checkpoint。
+- 创建/修改的文件：
+  - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
+
 ## 测试结果
 | 测试 | 输入 | 预期结果 | 实际结果 | 状态 |
 |------|------|---------|---------|------|
@@ -123,6 +138,10 @@
 | 修复提交发布 | `d318d016` → `origin/main` | 推送成功且后续 Actions 通过 | 两条 Actions 均为 `success` | 通过 |
 | Bot 回写审计 | `0ca04357` | 仅修改自动生成统计卡且保留修复提交 | 195 个 `profile-summary-card-output/` SVG；修复提交为祖先 | 通过 |
 | 线上 Profile README | `https://github.com/kevinlasnh` | 新组件已上线、旧故障域名消失、README 与远端 Git 一致 | HTTP 200；新引用齐全；旧域名 0；blob SHA 一致 | 通过 |
+| 当前线上外部组件审计 | Profile README 的 12 个唯一外部图片 | 全部为有效图片、无原故障文本 | 12/12 HTTP 200 有效 SVG；错误文本 0 | 通过 |
+| 当前线上本地组件审计 | 8 个唯一 `raw/main` SVG | 头尾素材和主题 Stats 均可达且 XML 有效 | 8/8 HTTP 200；XML 8/8 有效 | 通过 |
+| 当前联系方式审计 | X、Email、WeChat 展示页与 raw QR | 三个链接可用，二维码资源有效 | 链接 3/3；展示页 200；raw JPEG 120,884 字节 | 通过 |
+| 当前线上视觉审计 | 从实时 Profile HTML 渲染 light/dark | 所有功能均正常显示 | 两套主题无 error、破图或低对比度组件 | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -134,6 +153,7 @@
 | 2026-07-31 | GitHub Markdown API 匿名额度耗尽（HTTP 403） | 1 | 停止匿名重试；优先复用本机已有 `gh` 认证完成只读渲染验证 |
 | 2026-07-31 | GitHub sanitizer 把 Skillicons `srcset` 中的逗号截断为候选分隔符 | 1 | 对图标列表逗号使用 `%2C` 编码，避免主题 source 只加载第一个 Python 图标 |
 | 2026-07-31 | Headless Chrome 初次“浅色”截图仍选择 dark media source | 1 | 识别为宿主色彩偏好；显式替换每个 `<picture>` 的 light/dark source 后分别重渲染 |
+| 2026-07-31 | 完成审计将 WeChat GitHub blob 展示页误判为非 JPEG 故障 | 1 | 修正验证条件：展示页应为有效 HTML，再单独请求 raw 图片确认 JPEG 内容 |
 
 ## 五问重启检查
 | 问题 | 答案 |
