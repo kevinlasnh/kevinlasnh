@@ -16,18 +16,33 @@
 
 ## 🛠️ Tech Stack
 
-<p align="center"><picture><img width="44" height="44" src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" /></picture>&#8202;<picture><img width="44" height="44" src="https://techstack-generator.vercel.app/java-icon.svg" alt="Java" /></picture>&#8202;<picture><img width="44" height="44" src="https://techstack-generator.vercel.app/ts-icon.svg" alt="TypeScript" /></picture>&#8202;<picture><img width="44" height="44" src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" /></picture>&#8202;<picture><img width="44" height="44" src="https://techstack-generator.vercel.app/docker-icon.svg" alt="Docker" /></picture>&#8202;<picture><img width="44" height="44" src="./assets/github-animated-white.svg" alt="GitHub" /></picture><br /><picture><img width="44" height="44" src="https://skillicons.dev/icons?i=rust" alt="Rust" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=flutter" alt="Flutter" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=linux" alt="Linux" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=git" alt="Git" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=vscode" alt="VS Code" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=latex" alt="LaTeX" /></picture>&#8202;<picture><img width="44" height="44" src="https://skillicons.dev/icons?i=ros" alt="ROS" /></picture></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python%2Cjava%2Cts%2Crust%2Ccpp%2Cflutter%2Cdocker%2Clinux%2Cgit%2Cgithub%2Cvscode%2Clatex%2Cros&perline=7&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=python%2Cjava%2Cts%2Crust%2Ccpp%2Cflutter%2Cdocker%2Clinux%2Cgit%2Cgithub%2Cvscode%2Clatex%2Cros&perline=7&theme=light" />
+    <img src="https://skillicons.dev/icons?i=python%2Cjava%2Cts%2Crust%2Ccpp%2Cflutter%2Cdocker%2Clinux%2Cgit%2Cgithub%2Cvscode%2Clatex%2Cros&perline=7&theme=dark" alt="Python, Java, TypeScript, Rust, C++, Flutter, Docker, Linux, Git, GitHub, VS Code, LaTeX, and ROS" />
+  </picture>
+</p>
 
 ## 📊 GitHub Stats
 
 <p align="center">
-  <a href="https://github.com/kevinlasnh/github-readme-stats"><picture><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=24292F&ring_color=0969DA&border_color=D0D7DE&border_radius=6"/><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&ring_color=00D4FF&border_color=FFFFFF&border_radius=6"/><img width="56.51%" align="center" alt="kevinlasnh's GitHub Stats" src="https://github-readme-stats-omega-three-23.vercel.app/api?username=kevinlasnh&show_icons=true&include_all_commits=true&count_private=true&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&ring_color=00D4FF&border_color=FFFFFF&border_radius=6"/></picture></a>&nbsp;<a href="https://github.com/kevinlasnh/github-readme-stats"><picture><source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=24292F&border_color=D0D7DE&border_radius=6"/><source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/><img width="40.99%" align="center" alt="kevinlasnh's Top Languages" src="https://github-readme-stats-omega-three-23.vercel.app/api/top-langs/?username=kevinlasnh&langs_count=8&layout=compact&card_width=330&theme=react&bg_color=00000000&title_color=00D4FF&icon_color=1E90FF&text_color=FFFFFF&border_color=FFFFFF&border_radius=6"/></picture></a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/3-stats.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile-summary-card-output/github/3-stats.svg" />
+    <img width="49%" align="center" alt="kevinlasnh's GitHub Stats" src="./profile-summary-card-output/github_dark/3-stats.svg" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/2-most-commit-language.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile-summary-card-output/github/2-most-commit-language.svg" />
+    <img width="49%" align="center" alt="kevinlasnh's Top Languages" src="./profile-summary-card-output/github_dark/2-most-commit-language.svg" />
+  </picture>
 </p>
 
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img width="97.5%" src="https://github-profile-trophy.vercel.app/?username=kevinlasnh&theme=algolia&margin-w=4&row=1&no-bg=true"/>
+  <img width="97.5%" src="https://trophygithubreadmelang.cybee.dpdns.org/?username=kevinlasnh&theme=algolia&margin-w=4&row=1&no-bg=true" alt="GitHub Profile Trophies" />
 </p>
 
 ## 🐍 Contribution Snake
@@ -44,9 +59,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=57606A&line=0969DA&point=1E90FF&area=true&area_color=87CEEB&hide_title=true&border_color=D0D7DE&radius=8&height=300&grid=true" />
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" />
-    <img width="97.5%" src="https://github-readme-activity-graph-xi-murex.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=57606A&line=0969DA&point=1E90FF&area=true&area_color=87CEEB&hide_title=true&border_color=D0D7DE&radius=8&height=300&grid=true" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" />
+    <img width="97.5%" src="https://github-readme-activity-graph.vercel.app/graph?username=kevinlasnh&bg_color=00000000&color=E6F7FF&line=00BFFF&point=00D4FF&area=true&area_color=1E90FF&hide_title=true&border_color=FFFFFF&radius=8&height=300&grid=true" alt="Activity Graph"/>
   </picture>
 </p>
 

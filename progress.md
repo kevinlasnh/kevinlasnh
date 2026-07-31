@@ -74,6 +74,28 @@
 - 创建/修改的文件：
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
 
+### 阶段 6：恢复 README 全部功能
+- **状态：** in_progress
+- 执行的操作：
+  - 归一化路径，重新读取 `planning-with-files-zh`、PWF 和仓库 Agent Markdown。
+  - 运行 session-catchup，确认 Git 工作区与 `origin/main` 同步，只有本地忽略的 Agent Markdown。
+  - 视觉审阅用户截图，识别 Stats、Trophy、Activity Graph 的明确错误及技术栈暗色可见性风险。
+  - 建立本轮逐组件诊断、修复、渲染验证和发布计划。
+  - 阅读根 README 的全部远程 URL、相关变更历史和近期 GitHub Actions 运行记录；外部结果记录在 `findings.md`。
+  - 批量请求 README 远程图片端点并检查状态、类型和错误文本；稳定端点与 Vercel 链路差异记录在 `findings.md`。
+  - 通过 GitHub 渲染 API 提取 Camo URL，逐个下载实际代理响应，确认 Stats、Trophy、Activity Graph 的错误内容，并排除 Techstack Generator 破图。
+  - 尝试用 `tavily-search` 查当前维护端点，因用量限制失败；已记录错误并切换 GitHub 原始资料路径。
+  - 读取 Trophy 与 Activity Graph 官方 README，确认负载均衡镜像集合和 canonical deployment。
+  - 通过已登录的 GitHub CLI 调用 Markdown API，批量验证 16 个 Trophy 官方镜像、Activity Graph 明暗 URL 与统一 Skillicons 网格的实际 Camo 响应。
+  - 修改 `README.md`：Stats 切换到本地 Action 生成的 `github` / `github_dark` 卡片，Trophy 切换到实测健康镜像，Activity Graph 切换 canonical 域名，Tech Stack 改为明暗主题自适应的统一网格。
+  - 首次完整 GitHub 渲染发现 Skillicons `srcset` 逗号截断，立即改用 `%2C` 编码并重验，三个相关标签均保留完整 13 项图标。
+  - 对修改后的完整 README 执行 GitHub Markdown/Camo 验证：27 个图片标签、8 个本地图片路径和 12 个唯一远程响应全部通过。
+  - 使用 Chrome 对 GitHub 渲染 HTML 做确定性的浅色/深色 source 选择并截图审阅；两套 Stats、Tech Stack、Trophy、Snake、Activity Graph、联系方式和头尾素材均正常显示，无错误卡或破图。
+  - 发布前执行 `git fetch --prune origin`：`main` 与 `origin/main` 完全同步；`origin/output` 仅发生预期的 Snake Action 强制刷新，不影响当前提交。
+- 创建/修改的文件：
+  - `README.md`
+  - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
+
 ## 测试结果
 | 测试 | 输入 | 预期结果 | 实际结果 | 状态 |
 |------|------|---------|---------|------|
@@ -90,6 +112,9 @@
 | 最终差异卫生 | 索引、工作区和新增维护文件 | 无空白错误或行尾空白 | 全部通过 | 通过 |
 | 发布前回归 | 最新远端基线 + 待发布提交 | Agent 配置同步、忽略正确、YAML/SVG 有效 | 全部通过 | 通过 |
 | 远端发布核验 | `origin/main` | 人工提交可达，后续仅有预期 bot 生成变更 | 人工提交为远端祖先，生成变更路径符合预期 | 通过 |
+| README 本地结构 | 旧故障域名、4 张本地 Stats 卡、相对引用 | 旧域名清零，目标存在且 SVG 有效 | 旧域名 0；Stats 4/4；相对图片缺失 0 | 通过 |
+| GitHub Markdown/Camo | 修改后的完整 `README.md` | 所有图片标签可渲染，远程响应为有效图片且无错误文本 | 27 个标签；12 个唯一远程图片 12/12 通过 | 通过 |
+| README 明暗主题视觉 | GitHub 渲染 HTML 的 light/dark source | 两套主题均无破图、错误卡或低对比度组件 | Stats、Trophy、Snake、Activity Graph、Tech Stack 等全部可见 | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -97,12 +122,16 @@
 | 2026-07-31 | `/bin/bash: identify: command not found` | 1 | 不安装额外依赖，使用 `file`、SVG 属性、`xmllint` 与现有图片查看工具 |
 | 2026-07-31 | 图片查看工具无法处理 5 个动态 SVG | 1 | 不重复同一路径；依赖完整源码和 XML 校验，另查现有本地渲染器 |
 | 2026-07-31 | `grep -c` 将主题 raw URL 的 5 次出现统计成 3 个匹配行 | 1 | 改用 `grep -Fo ... | wc -l`，不把首次结果当作仓库缺陷 |
+| 2026-07-31 | `tavily-search` 超出账户用量上限 | 1 | 不重试；改查 GitHub 仓库 README/API，并用 Camo 实测 |
+| 2026-07-31 | GitHub Markdown API 匿名额度耗尽（HTTP 403） | 1 | 停止匿名重试；优先复用本机已有 `gh` 认证完成只读渲染验证 |
+| 2026-07-31 | GitHub sanitizer 把 Skillicons `srcset` 中的逗号截断为候选分隔符 | 1 | 对图标列表逗号使用 `%2C` 编码，避免主题 source 只加载第一个 Python 图标 |
+| 2026-07-31 | Headless Chrome 初次“浅色”截图仍选择 dark media source | 1 | 识别为宿主色彩偏好；显式替换每个 `<picture>` 的 light/dark source 后分别重渲染 |
 
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 全部阶段已完成 |
-| 我要去哪里？ | 提交并推送最终 PWF checkpoint 后向用户报告 |
+| 我在哪里？ | 阶段 6：恢复 README 全部功能 |
+| 我要去哪里？ | 逐项诊断端点、修复 README、验证渲染、记录并 push |
 | 目标是什么？ | 完整理解仓库后建立准确、同步的仓库级 Agent Markdown |
 | 我学到了什么？ | 见 `findings.md` |
 | 我做了什么？ | 见上方记录 |
