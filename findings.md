@@ -55,6 +55,8 @@
 - 发布前必须重新 fetch：该仓库每天由 `profile-summary-cards[bot]` 更新，先前同步状态可能已经过时。
 - 2026-07-31 发布前 fetch 发现 `origin/main` 比本地前进 1 个提交：`91db9539`（`profile-summary-cards[bot]`，`Generate profile summary cards`）；`origin/output` 也被 Action 强制刷新到 `21090aba`。提交前需要先确认远端 main 变更仅为预期生成产物，再安全整合。
 - 已核对 `91db9539`：只修改 `profile-summary-card-output/` 下 130 个自动生成 SVG（65 个主题各自的详情卡与统计卡），与 `.gitignore`、PWF 和停止追踪 `CLAUDE.md` 的本地变更无路径重叠，可安全 fast-forward。
+- 主发布提交 `473d2ac6` 已成功推送到 `origin/main`。push 随即触发卡片工作流，远端生成 `557e91b4`；已确认 `473d2ac6` 是其祖先，说明人工提交完整保留。
+- `557e91b4` 仍只修改 `profile-summary-card-output/` 下 130 个自动生成 SVG（每主题的 stats 与 productive-time），属于预期 bot 回写；本地已 fast-forward 到该远端落点。
 
 ## 技术决策
 | 决策 | 理由 |
@@ -66,6 +68,7 @@
 | 将 `output` 分支标记为机器维护且禁止合并回 main | 分支仅承载 Action 发布的两张贡献蛇，根 README 通过 raw URL 消费它们 |
 | `.gitignore` 使用 `.*/` 并以 `!.github/`、`!.github/**` 建立例外 | 满足所有隐藏目录默认忽略，同时保证 `.github/` 现有及未来工作流文件可追踪 |
 | 从索引移除旧 `CLAUDE.md`，保留工作区并与 `AGENTS.md` 同步 | 落实仓库根 Agent Markdown 本地维护、不提交的约束 |
+| 最终 PWF 发布 checkpoint 使用独立 `[skip ci]` 提交 | 记录真实 push 与 bot 回写结果，同时避免仅文档进度更新再次触发两条生成工作流 |
 
 ## 遇到的问题
 | 问题 | 解决方案 |

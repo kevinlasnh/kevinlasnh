@@ -57,7 +57,7 @@
   - `task_plan.md`、`findings.md`、`progress.md`（增量记录并收口）
 
 ### 阶段 5：记录进度并发布
-- **状态：** in_progress
+- **状态：** complete
 - 执行的操作：
   - 重新归一化路径并确认未命中 Second Brain Path Guard。
   - 重新读取 `planning-with-files-zh` Skill 和 PWF 三件套。
@@ -68,6 +68,9 @@
   - 将本地 `main` fast-forward 到最新 `origin/main`，保留全部本地暂存/工作区变更，分支基线重新同步。
   - 重新暂存 PWF 与忽略规则，完成 diff、Agent Markdown 同步、忽略规则、YAML 和 330 个 SVG XML 的发布前验证。
   - 创建单一发布提交，提交信息为 `chore: initialize repository agent guidance`；在 push 前把本条 checkpoint 一并纳入该提交。
+  - 将主发布提交推送到 `origin/main`，随后读取远端落点并确认工作流产生了预期 bot 回写。
+  - fetch 并检查 bot 提交：人工发布提交仍是远端祖先，外部变更范围只包含自动生成卡片；详情见 `findings.md`。
+  - 将本地 `main` fast-forward 到 bot 回写后的最新 `origin/main`，准备以 `[skip ci]` 提交最终 PWF checkpoint，避免重复触发工作流。
 - 创建/修改的文件：
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
 
@@ -86,6 +89,7 @@
 | 忽略与例外规则 | Agent 文件、隐藏目录、`.github/`、PWF | 本地配置被忽略，工作流/PWF 可追踪 | 行为全部符合预期 | 通过 |
 | 最终差异卫生 | 索引、工作区和新增维护文件 | 无空白错误或行尾空白 | 全部通过 | 通过 |
 | 发布前回归 | 最新远端基线 + 待发布提交 | Agent 配置同步、忽略正确、YAML/SVG 有效 | 全部通过 | 通过 |
+| 远端发布核验 | `origin/main` | 人工提交可达，后续仅有预期 bot 生成变更 | 人工提交为远端祖先，生成变更路径符合预期 | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -97,8 +101,8 @@
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 阶段 5：记录进度并发布 |
-| 我要去哪里？ | 核对远端、提交、推送并验证 `origin/main` 落点 |
+| 我在哪里？ | 全部阶段已完成 |
+| 我要去哪里？ | 提交并推送最终 PWF checkpoint 后向用户报告 |
 | 目标是什么？ | 完整理解仓库后建立准确、同步的仓库级 Agent Markdown |
 | 我学到了什么？ | 见 `findings.md` |
 | 我做了什么？ | 见上方记录 |
