@@ -75,7 +75,7 @@
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
 
 ### 阶段 6：恢复 README 全部功能
-- **状态：** in_progress
+- **状态：** complete
 - 执行的操作：
   - 归一化路径，重新读取 `planning-with-files-zh`、PWF 和仓库 Agent Markdown。
   - 运行 session-catchup，确认 Git 工作区与 `origin/main` 同步，只有本地忽略的 Agent Markdown。
@@ -92,6 +92,11 @@
   - 对修改后的完整 README 执行 GitHub Markdown/Camo 验证：27 个图片标签、8 个本地图片路径和 12 个唯一远程响应全部通过。
   - 使用 Chrome 对 GitHub 渲染 HTML 做确定性的浅色/深色 source 选择并截图审阅；两套 Stats、Tech Stack、Trophy、Snake、Activity Graph、联系方式和头尾素材均正常显示，无错误卡或破图。
   - 发布前执行 `git fetch --prune origin`：`main` 与 `origin/main` 完全同步；`origin/output` 仅发生预期的 Snake Action 强制刷新，不影响当前提交。
+  - 创建并推送修复提交 `d318d016`（`fix: restore profile README widgets`），远端 `main` 已精确落到该提交。
+  - 核验 push 触发的 `Generate Profile Summary Cards` 与 `Generate Snake Animation` 两条 Actions，均以 `success` 完成。
+  - fetch 并审阅 bot 回写 `0ca04357`：仅修改 `profile-summary-card-output/` 下 195 个生成 SVG；本地已 fast-forward，修复提交仍为远端祖先，刷新后的 4 张主页 Stats 卡继续通过 XML 校验。
+  - 请求线上 `https://github.com/kevinlasnh`：HTTP 200，页面包含全部新端点和本地 Stats 路径，4 个旧故障域名均为 0；GitHub API 返回的 README blob SHA 与 `origin/main` 完全一致。
+  - 阶段 6 已完成，准备以 `[skip ci]` 提交最终 PWF checkpoint，避免纯进度记录再次触发两条生成工作流。
 - 创建/修改的文件：
   - `README.md`
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
@@ -115,6 +120,9 @@
 | README 本地结构 | 旧故障域名、4 张本地 Stats 卡、相对引用 | 旧域名清零，目标存在且 SVG 有效 | 旧域名 0；Stats 4/4；相对图片缺失 0 | 通过 |
 | GitHub Markdown/Camo | 修改后的完整 `README.md` | 所有图片标签可渲染，远程响应为有效图片且无错误文本 | 27 个标签；12 个唯一远程图片 12/12 通过 | 通过 |
 | README 明暗主题视觉 | GitHub 渲染 HTML 的 light/dark source | 两套主题均无破图、错误卡或低对比度组件 | Stats、Trophy、Snake、Activity Graph、Tech Stack 等全部可见 | 通过 |
+| 修复提交发布 | `d318d016` → `origin/main` | 推送成功且后续 Actions 通过 | 两条 Actions 均为 `success` | 通过 |
+| Bot 回写审计 | `0ca04357` | 仅修改自动生成统计卡且保留修复提交 | 195 个 `profile-summary-card-output/` SVG；修复提交为祖先 | 通过 |
+| 线上 Profile README | `https://github.com/kevinlasnh` | 新组件已上线、旧故障域名消失、README 与远端 Git 一致 | HTTP 200；新引用齐全；旧域名 0；blob SHA 一致 | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -130,8 +138,8 @@
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 阶段 6：恢复 README 全部功能 |
-| 我要去哪里？ | 逐项诊断端点、修复 README、验证渲染、记录并 push |
+| 我在哪里？ | 全部阶段已完成 |
+| 我要去哪里？ | 推送最终 `[skip ci]` PWF checkpoint 后向用户报告 |
 | 目标是什么？ | 完整理解仓库后建立准确、同步的仓库级 Agent Markdown |
 | 我学到了什么？ | 见 `findings.md` |
 | 我做了什么？ | 见上方记录 |
