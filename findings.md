@@ -121,6 +121,8 @@
 | 活动图整块空白，最初怀疑是 README 参数或路径写错 | 直接请求端点得到 HTTP 402 `Payment required / DEPLOYMENT_DISABLED`，是服务方停用部署；README 侧无需“修语法”，只能换数据来源 |
 | 搜索到的多个“可用”活动图域名实际来自同一后端 | `github-readme-activity-graph-{kappa,rust}.vercel.app` 与 `ghactivity.mrayush.me` 对同一用户返回完全相同的响应；不能把这种个人实例当作稳定依赖 |
 | 自托管若新开一条工作流会破坏 `output` 分支 | 两条工作流都发布到 `output` 且各自只推送自己的 `build_dir`；解法是把两类产物放进同一个 `dist/` 由一次发布完成 |
+| 推送顶端提交带 `[skip ci]` 会跳过整次推送的工作流 | GitHub 按 push 的顶端提交消息判定；`ff7a0e43` 虽只是 PWF 文档提交，仍导致修复提交也没触发工作流，需补推一个无标记的提交 |
+| `gh run list` 存在列表缓存滞后，push 后长时间查不到新 run | 用 `--json headSha` 过滤并稍后复查即可看到；不要据此判定工作流未触发 |
 
 ## 资源
 - 本地 Git 仓库及其受控文件、提交历史和配置。

@@ -131,6 +131,11 @@
   - 调整 `.gitignore`：移除 `/AGENTS.md`、`/CLAUDE.md` 排除，补显式 `.brv/` 条目，并写明变更原因。
   - 同步更新 `AGENTS.md` 与 `CLAUDE.md`：修正仓库定位、内容归属表、自动化行为、编辑约定、验证命令与忽略规则，两份保持逐字节一致。
   - 执行完整验证：diff 卫生、YAML、全部受控 SVG 的 XML、两份 Agent Markdown 一致性、忽略行为、生成器复跑与产物 XML 校验，全部通过。
+  - 提交 `6e17d16f`（修复）与 `ff7a0e43`（PWF 进度）；push 前发现远端有 45 个 bot 卡片提交，因改动文件无交集，rebase 干净完成后再推送。
+  - 发现 `ff7a0e43` 作为推送顶端提交携带 `[skip ci]`，导致整次推送跳过两条工作流；补推空提交 `a09497bd` 触发发布。
+  - 核验两条 Actions 均 `success`；`origin/output` 已新增 `activity-graph.svg`（17,733 字节）与 `activity-graph-dark.svg`（17,752 字节），且原贡献蛇两张文件未被清空。
+  - 线上核验：三个 raw URL 均 HTTP 200 且 XML 有效；线上 README 第 62-64 行已引用新路径，失效域名引用为 0；从线上下载的真实产物在浅色/深色背景下渲染正常（线上 1619 次贡献，比本地多 3 次，属抓取时点差异）。
+  - fast-forward 合并 bot 卡片回写 `b6035ac7`，本地与 `origin/main` 同步。
 - 创建/修改的文件：
   - `scripts/generate-activity-graph.mjs`（新建）
   - `.github/workflows/snake.yml`
@@ -159,6 +164,11 @@
 | 活动图视觉核验 | 浅色/深色 SVG 在对应背景渲染 | 两版均清晰可读 | 无破图、无低对比度，月份与刻度完整 | 通过 |
 | 忽略口径调整 | `AGENTS.md`、`CLAUDE.md`、`.brv/` | Agent 文档纳入跟踪，`.brv/` 仍忽略 | check-ignore：文档 rc=1（未忽略），`.brv/` rc=0（忽略） | 通过 |
 | 阶段 8 最终回归 | diff、YAML、受控 SVG、Agent MD 一致性、生成器 | 全部检查通过 | 全部通过 | 通过 |
+| 推送前远端整合 | `origin/main` 的 45 个 bot 提交 | 无冲突完成 rebase | 改动文件无交集，rebase 干净 | 通过 |
+| Actions 发布 | 补推 `a09497bd` 触发的两条工作流 | 均成功并更新 `output` | 2/2 `success` | 通过 |
+| `output` 分支产物 | 四张 SVG | 活动图新增且贡献蛇保留 | activity-graph 2 张新增（17,733 / 17,752 字节），snake 2 张未受影响 | 通过 |
+| 线上端到端 | 三个 raw URL 与线上 README | 可达、有效、引用正确 | 3/3 HTTP 200 且 XML 有效；README 引用新路径；失效域名 0 | 通过 |
+| 线上产物视觉 | 线上真实 SVG 浅/深色渲染 | 两版清晰可读 | 通过 | 通过 |
 | 最终差异卫生 | 索引、工作区和新增维护文件 | 无空白错误或行尾空白 | 全部通过 | 通过 |
 | 发布前回归 | 最新远端基线 + 待发布提交 | Agent 配置同步、忽略正确、YAML/SVG 有效 | 全部通过 | 通过 |
 | 远端发布核验 | `origin/main` | 人工提交可达，后续仅有预期 bot 生成变更 | 人工提交为远端祖先，生成变更路径符合预期 | 通过 |
