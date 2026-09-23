@@ -5,6 +5,12 @@
 !.github/
 !.github/**
 
-# Repository Agent Markdown is local-only.
-/AGENTS.md
-/CLAUDE.md
+# ByteRover 本地长期记忆树：只含本地 worktree 指针与本地记忆，必须保持忽略。
+# 上面的 ".*/" 其实已经覆盖它，这里仍写成显式条目，便于审计，也避免将来
+# 默认隐藏目录规则被收窄后意外开始跟踪。
+.brv/
+
+# 变更记录：原先这里有 /AGENTS.md、/CLAUDE.md 两条排除规则，把根目录的两份
+# Agent 配置保持为「仅本地」。按全局 AGENTS.md 的「仓库根 agent markdown 默认
+# 纳入 Git 跟踪和 push」规则，这两条排除已移除；AGENTS.md 与 CLAUDE.md 现在
+# 跟随仓库一起跟踪、提交和推送。

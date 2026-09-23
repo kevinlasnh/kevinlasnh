@@ -15,6 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 生成自托管活动图（不依赖任何第三方图床服务）。
+      # 说明：README 原先引用的 github-readme-activity-graph.vercel.app 已返回 HTTP 402
+      # DEPLOYMENT_DISABLED 导致活动图整块空白，因此改为在 Actions 内自行生成 SVG。
+      # 输出到 dist/ 与下面的贡献蛇共用同一个 build_dir，这样一次发布即可同时更新
+      # 两类产物，也避免两条工作流各自推送时互相清掉对方的文件。
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate activity graph SVGs
+        run: node scripts/generate-activity-graph.mjs "${{ github.repository_owner }}" dist
+
       - name: Generate snake SVGs
         uses: Platane/snk/svg-only@v3
         with:
