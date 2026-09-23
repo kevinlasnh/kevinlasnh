@@ -116,6 +116,29 @@
 - 创建/修改的文件：
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
 
+### 阶段 8：修复失效的活动图并调整忽略口径
+- **状态：** complete
+- 执行的操作：
+  - 复跑仓库验证前置检查：`AGENTS.md` 与 `CLAUDE.md` 一致，工作区初始干净，`main` 与 `origin/main` 同步。
+  - 定位活动图根因：README 引用的 `github-readme-activity-graph.vercel.app` 返回 HTTP 402 `Payment required / DEPLOYMENT_DISABLED`，是服务方停用部署，而非 README 语法或路径问题。
+  - 实测并逐一渲染候选替代：官方镜像与 Heroku 实例已死；`github-readme-activity-graph-psi` 返回 error SVG；`ghchart.rshah.org`、profile-summary 的 contributions 卡可用但样式偏离原图。
+  - 识别出 `github-readme-activity-graph-{kappa,rust}.vercel.app` 与 `ghactivity.mrayush.me` 三个域名返回完全相同的响应（同一后端），属于来路不明的个人实例，判定为不可长期依赖。
+  - 与用户确认方案：选择「Actions 自托管图表」，并把根 Agent Markdown 改为纳入 Git 跟踪。
+  - 确认自托管数据源可用：GitHub 公开 contributions 页面返回 368 天逐日数据，含精确次数 tooltip，无需 PAT。
+  - 新建零依赖生成器 `scripts/generate-activity-graph.mjs`，抓取公开贡献数据后输出浅色/深色两张 SVG，配色沿用原 URL 参数。
+  - 修改 `.github/workflows/snake.yml`：加入 checkout、setup-node 与生成步骤，活动图与贡献蛇共用同一个 `dist/` 并由同一次 Pages 发布推送，避免两条工作流互相清空 `output` 分支。
+  - 更新 `README.md` 活动图区块，改为引用 `output` 分支的 `activity-graph.svg` / `activity-graph-dark.svg` raw URL。
+  - 调整 `.gitignore`：移除 `/AGENTS.md`、`/CLAUDE.md` 排除，补显式 `.brv/` 条目，并写明变更原因。
+  - 同步更新 `AGENTS.md` 与 `CLAUDE.md`：修正仓库定位、内容归属表、自动化行为、编辑约定、验证命令与忽略规则，两份保持逐字节一致。
+  - 执行完整验证：diff 卫生、YAML、全部受控 SVG 的 XML、两份 Agent Markdown 一致性、忽略行为、生成器复跑与产物 XML 校验，全部通过。
+- 创建/修改的文件：
+  - `scripts/generate-activity-graph.mjs`（新建）
+  - `.github/workflows/snake.yml`
+  - `README.md`
+  - `.gitignore`
+  - `AGENTS.md`、`CLAUDE.md`（同步更新）
+  - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
+
 ## 测试结果
 | 测试 | 输入 | 预期结果 | 实际结果 | 状态 |
 |------|------|---------|---------|------|
@@ -129,6 +152,13 @@
 | Workflow YAML 语法 | 2 个 `.yml` | 可被 YAML 解析器读取 | 2/2 有效 | 通过 |
 | Agent Markdown 同步 | `AGENTS.md`、`CLAUDE.md` | 字节一致且 H1 正确 | 同一 SHA-256，`cmp` 返回 0 | 通过 |
 | 忽略与例外规则 | Agent 文件、隐藏目录、`.github/`、PWF | 本地配置被忽略，工作流/PWF 可追踪 | 行为全部符合预期 | 通过 |
+| 活动图根因定位 | 原第三方活动图 URL | 确认失效原因 | HTTP 402 `DEPLOYMENT_DISABLED`（服务方停用部署） | 通过 |
+| 候选替代实测 | 6 个候选域名/服务 | 找出可用替代 | 官方镜像/Heroku 已死；psi 返回 error SVG；ghchart 与 profile-summary 可用但样式偏离 | 通过 |
+| 自托管数据源 | GitHub 公开 contributions 页面 | 无需 PAT 即可取逐日数据 | 368 天，含精确次数 tooltip | 通过 |
+| 生成器本地运行 | `node scripts/generate-activity-graph.mjs kevinlasnh /tmp/actout` | 输出两张有效 SVG | 2/2 生成成功，`xmllint` 通过 | 通过 |
+| 活动图视觉核验 | 浅色/深色 SVG 在对应背景渲染 | 两版均清晰可读 | 无破图、无低对比度，月份与刻度完整 | 通过 |
+| 忽略口径调整 | `AGENTS.md`、`CLAUDE.md`、`.brv/` | Agent 文档纳入跟踪，`.brv/` 仍忽略 | check-ignore：文档 rc=1（未忽略），`.brv/` rc=0（忽略） | 通过 |
+| 阶段 8 最终回归 | diff、YAML、受控 SVG、Agent MD 一致性、生成器 | 全部检查通过 | 全部通过 | 通过 |
 | 最终差异卫生 | 索引、工作区和新增维护文件 | 无空白错误或行尾空白 | 全部通过 | 通过 |
 | 发布前回归 | 最新远端基线 + 待发布提交 | Agent 配置同步、忽略正确、YAML/SVG 有效 | 全部通过 | 通过 |
 | 远端发布核验 | `origin/main` | 人工提交可达，后续仅有预期 bot 生成变更 | 人工提交为远端祖先，生成变更路径符合预期 | 通过 |
@@ -154,13 +184,21 @@
 | 2026-07-31 | GitHub sanitizer 把 Skillicons `srcset` 中的逗号截断为候选分隔符 | 1 | 对图标列表逗号使用 `%2C` 编码，避免主题 source 只加载第一个 Python 图标 |
 | 2026-07-31 | Headless Chrome 初次“浅色”截图仍选择 dark media source | 1 | 识别为宿主色彩偏好；显式替换每个 `<picture>` 的 light/dark source 后分别重渲染 |
 | 2026-07-31 | 完成审计将 WeChat GitHub blob 展示页误判为非 JPEG 故障 | 1 | 修正验证条件：展示页应为有效 HTML，再单独请求 raw 图片确认 JPEG 内容 |
+| 2026-09-23 | 活动图整块空白，初判为 README/参数问题 | 1 | 直接请求端点发现 HTTP 402 `DEPLOYMENT_DISABLED`，确认是服务方停用部署，改为自托管方案 |
+
+## 会话：2026-09-23
+
+### 阶段 8：修复失效的活动图并调整忽略口径
+- **状态：** complete
+- 详情见上方「阶段 8」条目。
+- 关键结论：活动图不再依赖任何第三方图床；`AGENTS.md` / `CLAUDE.md` 改为纳入 Git 跟踪。
 
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 全部阶段已完成 |
-| 我要去哪里？ | 推送最终 `[skip ci]` PWF checkpoint 后向用户报告 |
-| 目标是什么？ | 完整理解仓库后建立准确、同步的仓库级 Agent Markdown |
+| 我在哪里？ | 阶段 8 已完成，等待提交与推送 |
+| 我要去哪里？ | 提交本轮活动图修复与忽略口径调整，push 后核验 Actions 与线上渲染 |
+| 目标是什么？ | 修复活动图不显示，并按全局规则调整 `.gitignore` 的 Agent Markdown 口径 |
 | 我学到了什么？ | 见 `findings.md` |
 | 我做了什么？ | 见上方记录 |
 

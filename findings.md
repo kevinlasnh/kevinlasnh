@@ -100,6 +100,11 @@
 | Trophy 使用 `trophygithubreadmelang.cybee.dpdns.org` | 该端点来自项目官方负载均衡清单，并通过 GitHub Camo 与直接请求双重验证 |
 | Activity Graph 仅替换为 canonical 域名 | 维护方明确推荐该部署；现有颜色、尺寸和明暗主题参数无需改变 |
 | Tech Stack 恢复统一 Skillicons 网格并显式传入主题 | 保留全部 13 项技术栈，同时修复当前混合来源图标在深色背景下的低对比度 |
+| 活动图改为 Actions 自托管，不再使用任何第三方图床 | 原 canonical 部署已返回 HTTP 402 `DEPLOYMENT_DISABLED`；现存第三方实例均为来路不明的个人部署，无法承诺长期可用 |
+| 活动图与贡献蛇合并到同一个 `snake.yml` 与同一个 `dist/` 发布 | 两条工作流都写同一个 `output` 分支，各自推送会清掉对方目录中的文件，必须共用一次 Pages 发布 |
+| 生成器保持零依赖、零凭据 | 只用 Node 内置 `fetch`，数据取自 GitHub 公开 contributions 页面；CI 不装 npm 包，也不需要 PAT/Secret |
+| 根 `AGENTS.md` / `CLAUDE.md` 改为纳入 Git 跟踪 | 与全局 AGENTS.md「仓库根 agent markdown 默认纳入跟踪」一致；原 `/AGENTS.md`、`/CLAUDE.md` 忽略规则已移除 |
+| `.brv/` 写成显式忽略条目 | 虽已被 `.*/` 覆盖，但显式记录可审计，并防止将来收窄隐藏目录规则后误跟踪本地记忆树 |
 
 ## 遇到的问题
 | 问题 | 解决方案 |
@@ -113,6 +118,9 @@
 | GitHub Markdown 渲染将 Skillicons `srcset` 中未编码的逗号视为图片候选分隔符 | `source` 的 canonical URL 被截断为 `i=python`；必须把图标列表逗号编码为 `%2C`，不能直接复用普通 `img src` 的写法 |
 | Headless Chrome 默认继承宿主深色偏好，初次白底截图仍选择 dark source | GitHub markup/media 条件已单独验证；视觉回归改为对每个 `<picture>` 显式选择对应主题 source，避免把测试环境偏好误判为 README 缺陷 |
 | 完成审计初版把 WeChat 链接的 GitHub blob 展示页要求为直接 JPEG | 这是验证器条件错误；README 链接的预期行为是打开 GitHub 图片展示页，应验证页面可达并另行核验其中的 raw JPEG |
+| 活动图整块空白，最初怀疑是 README 参数或路径写错 | 直接请求端点得到 HTTP 402 `Payment required / DEPLOYMENT_DISABLED`，是服务方停用部署；README 侧无需“修语法”，只能换数据来源 |
+| 搜索到的多个“可用”活动图域名实际来自同一后端 | `github-readme-activity-graph-{kappa,rust}.vercel.app` 与 `ghactivity.mrayush.me` 对同一用户返回完全相同的响应；不能把这种个人实例当作稳定依赖 |
+| 自托管若新开一条工作流会破坏 `output` 分支 | 两条工作流都发布到 `output` 且各自只推送自己的 `build_dir`；解法是把两类产物放进同一个 `dist/` 由一次发布完成 |
 
 ## 资源
 - 本地 Git 仓库及其受控文件、提交历史和配置。
@@ -120,6 +128,7 @@
 ## 视觉/浏览器发现
 - JPG 微信名片已视觉确认；5 个动态 SVG 已通过 Chrome 临时渲染帧确认视觉方向、浅深色配色和绘制动画。临时预览已删除，仓库未产生资源改动。
 - 用户提供的 GitHub 深色主题截图显示：本地头尾波浪、动态欢迎语、访问量、贡献蛇、Email/WeChat badge 可见；两张 GitHub Stats 均返回 “Something went wrong / Downtime due to GitHub API rate limiting”；GitHub Trophy 是破图；Activity Graph 返回 “Can't fetch any contribution. Please check your username”；技术栈首行部分图标在深色背景下对比度很低；X badge 的图形也需进一步确认。
+- 2026-09-23 活动图视觉核验：自托管生成的两张 SVG 分别在 `#ffffff` 与 `#0d1117` 背景下用无头 Chrome 渲染，浅色版（蓝线 + 浅蓝面积）与深色版（青蓝线 + 深蓝面积）均清晰可读；Y 轴 0–75 刻度、月份 `Sep…Sep` 标签、网格线与最近 14 天数据点显示正常，无破图或低对比度。数据为 368 天、合计 1616 次贡献、单日峰值 75 次。
 
 ---
 *每执行2次查看/浏览器/搜索操作后更新此文件*
