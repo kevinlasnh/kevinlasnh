@@ -4,7 +4,7 @@
 完整理解仓库的用途、结构、生成链路与维护约束，在仓库根创建内容一致且可长期使用的 `AGENTS.md` 和 `CLAUDE.md`，并完成必要验证。
 
 ## 当前阶段
-已完成（阶段 9：把 Profile Views 徽章从 komarev 迁移到 hits.sh，本地已验证，待推送后线上复核）
+已完成（阶段 9：Profile Views 徽章迁移到 hits.sh，已上线并通过 Camo 与 Actions 核验）
 
 ## 各阶段
 
@@ -75,8 +75,8 @@
 - [x] 通过 GitHub Markdown API + Camo 实测候选替代服务
 - [x] 更新 README 引用并做浅/深背景视觉核验
 - [x] 记录进度、提交并推送
-- [ ] 推送后复核线上 Camo 响应与 Profile 实际渲染
-- **状态：** in_progress
+- [x] 推送后复核线上 Camo 响应与 Profile 实际渲染
+- **状态：** complete
 
 ## 关键问题
 1. 根 README 的内容、外部动态卡片与本地资源如何共同构成 GitHub 个人主页？

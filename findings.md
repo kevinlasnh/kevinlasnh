@@ -90,6 +90,7 @@
 - 逐个用 GitHub Markdown API（`POST /markdown`）把候选徽章渲染成 Camo URL 再实际请求：`komarev.com` 404，`hits.sh` 200（1277 字节），`visitor-badge.laobi.icu` 200（1316 字节）；`api.visitorbadge.io` 被 Cloudflare 挑战页拦截，`profile-counter.glitch.me` 410，`hits.seeyoufarm.com` TLS 握手失败，`u8views.com/github/kevinlasnh` 返回 `User not found`。
 - `hits.sh` 的 SVG 结构（18px 高、圆角 4、同款顶部高光渐变、深色底）与 komarev plastic 样式几乎一致，且支持 `label` / `color` / `style=plastic` 参数，因此选它做替代；Camo 与直连双重验证均为 200 且 `xmllint` 通过。
 - 迁移代价：访问计数从 547 重新从 0 开始，两个服务的计数互不兼容；`hits.sh` 与 komarev 一样是第三方免费服务，未来仍可能失效，届时同样先从 Camo 响应判断是服务问题还是 README 问题。
+- 2026-10-22 上线复核：推送 `e8d5c6c0` 后线上 Profile HTML 已包含 `data-canonical-src="https://hits.sh/github.com/kevinlasnh.svg?..."`，该 Camo URL 返回 HTTP 200、1,277 字节有效 SVG，`aria-label` 为 `Profile Views: 8`；页面内 komarev 引用数为 0。两条工作流（Profile Summary Cards、Snake）均为 `success`。
 
 ## 技术决策
 | 决策 | 理由 |

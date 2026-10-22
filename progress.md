@@ -186,6 +186,9 @@
 | 候选徽章 Camo 实测 | komarev / hits.sh / laobi / badge.io / glitch / seeyoufarm / u8views | 找出 GitHub 可代理的替代服务 | hits.sh 200、laobi 200、komarev 404；其余不可用 | 通过 |
 | 新徽章端点校验 | `hits.sh` 参数 URL | 有效图片且可被代理 | 直连 200 `image/svg+xml`，Camo 200 1,277 字节，`xmllint` 通过 | 通过 |
 | 新徽章视觉核验 | 深/浅背景无头 Chrome 渲染 | 与原 plastic 风格一致 | 100×18，标签与计数清晰、无裁切 | 通过 |
+| 修复发布 | `e8d5c6c0` → `origin/main` | 推送成功并触发工作流 | `7edcea3d..e8d5c6c0` 推送成功 | 通过 |
+| 线上徽章复核 | Profile 页的 hits.sh Camo URL | 可代理、有效图片、无旧引用 | HTTP 200 1,277 字节有效 SVG；`Profile Views: 8`；komarev 引用 0 | 通过 |
+| 推送后 Actions | `Generate Profile Summary Cards`、`Generate Snake Animation` | 均成功 | 2/2 `success`（headSha `e8d5c6c0`） | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -211,7 +214,7 @@
 ## 会话：2026-10-22
 
 ### 阶段 9：修复 Profile Views 徽章破图
-- **状态：** in_progress（本地修复与验证完成，待推送后线上复核）
+- **状态：** complete
 - 执行的操作：
   - 复现用户截图中的 Profile Views 破图：直接请求 `komarev.com/ghpvc/` 仍返回 HTTP 200 与 1,015 字节有效 SVG（计数 547），说明服务本身在线。
   - 从 `https://github.com/kevinlasnh` 渲染 HTML 取到该徽章的真实 Camo URL，请求得到 HTTP 404 `Cannot proxy the given URL`，连续 3 次一致，确认失败点在 GitHub Camo 重抓阶段。
@@ -221,6 +224,8 @@
   - 修改 `README.md` 访问量 `<img>` 的 `src`，保留 `height="18"` 与 `alt="Profile Views"`；Camo 与直连均返回 HTTP 200 有效 SVG，`xmllint` 通过。
   - 用无头 Chrome 在 `#0d1117` 与白底分别渲染，确认标签、计数清晰且无裁切，与原徽章风格一致。
   - 推送前 `git pull --rebase` 整合远端 26 个 bot 卡片提交，改动文件无交集，无冲突。
+  - 提交 `04adf9c0`（PWF 记录，`[skip ci]`）与 `e8d5c6c0`（README 修复，作为推送顶端提交）后推送 `main`；两条工作流均成功。
+  - 线上复核：`https://github.com/kevinlasnh` 已引用新徽章 `data-canonical-src`，对应 Camo URL 返回 HTTP 200 `image/svg+xml`（1,277 字节），SVG 的 `aria-label` 为 `Profile Views: 8`；页面中 komarev 引用数为 0。
 - 创建/修改的文件：
   - `README.md`（Profile Views 徽章来源）
   - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
@@ -228,8 +233,8 @@
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 阶段 9 本地修复与验证已完成，等待提交与推送 |
-| 我要去哪里？ | 提交 README 修复与 PWF 记录，push 后复核线上 Camo 与 Profile 渲染 |
+| 我在哪里？ | 阶段 9 已上线并通过线上 Camo、Actions 复核 |
+| 我要去哪里？ | 收尾：同步最终 PWF checkpoint 并推送文档提交 |
 | 目标是什么？ | 修复 Profile Views 破图，并按要求记录进度后推送 |
 | 我学到了什么？ | 见 `findings.md`（Camo 复测方法、候选服务实测结果） |
 | 我做了什么？ | 见上方 2026-10-22 记录 |
