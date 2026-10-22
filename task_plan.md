@@ -4,7 +4,7 @@
 完整理解仓库的用途、结构、生成链路与维护约束，在仓库根创建内容一致且可长期使用的 `AGENTS.md` 和 `CLAUDE.md`，并完成必要验证。
 
 ## 当前阶段
-已完成（阶段 8：活动图自托管修复 + 忽略口径对齐，已上线并核验）
+已完成（阶段 9：把 Profile Views 徽章从 komarev 迁移到 hits.sh，本地已验证，待推送后线上复核）
 
 ## 各阶段
 
@@ -69,6 +69,15 @@
 - [x] 核验 Actions、`output` 分支产物与线上 raw URL
 - **状态：** complete
 
+### 阶段 9：修复 Profile Views 徽章破图（2026-10-22）
+- [x] 复现 Profile Views 破图，并沿 GitHub 实际渲染链路定位失败点
+- [x] 核对 komarev 服务状态与上游 issue
+- [x] 通过 GitHub Markdown API + Camo 实测候选替代服务
+- [x] 更新 README 引用并做浅/深背景视觉核验
+- [x] 记录进度、提交并推送
+- [ ] 推送后复核线上 Camo 响应与 Profile 实际渲染
+- **状态：** in_progress
+
 ## 关键问题
 1. 根 README 的内容、外部动态卡片与本地资源如何共同构成 GitHub 个人主页？
 2. `profile-summary-card-output` 由哪个工作流生成，哪些文件应由 Agent 维护或避免手改？
@@ -86,6 +95,7 @@
 | 活动图改为 Actions 自托管，并复用 `snake.yml` 发布 | 原服务已 402 停用，其余第三方实例不可信；共用一次发布可避免两条工作流互相清空 `output` 分支 |
 | 生成器零依赖、零凭据 | 只用 Node 内置能力与 GitHub 公开贡献页面，CI 无需装包，也无需 PAT |
 | 根 `AGENTS.md` / `CLAUDE.md` 纳入 Git 跟踪 | 用户明确要求对齐全局「仓库根 agent markdown 默认纳入跟踪」规则 |
+| Profile Views 徽章从 komarev 迁移到 hits.sh | komarev 已被 GitHub Camo 拒绝代理（上游 issue #122 未修复），hits.sh 同参数经 Camo 实测 200 且视觉风格一致 |
 
 ## 遇到的错误
 | 错误 | 尝试次数 | 解决方案 |

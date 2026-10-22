@@ -182,6 +182,10 @@
 | 当前线上本地组件审计 | 8 个唯一 `raw/main` SVG | 头尾素材和主题 Stats 均可达且 XML 有效 | 8/8 HTTP 200；XML 8/8 有效 | 通过 |
 | 当前联系方式审计 | X、Email、WeChat 展示页与 raw QR | 三个链接可用，二维码资源有效 | 链接 3/3；展示页 200；raw JPEG 120,884 字节 | 通过 |
 | 当前线上视觉审计 | 从实时 Profile HTML 渲染 light/dark | 所有功能均正常显示 | 两套主题无 error、破图或低对比度组件 | 通过 |
+| Profile Views Camo 复测 | 线上 `<img>` 对应的 Camo URL | 定位破图失败点 | HTTP 404 `Cannot proxy the given URL`，连续 3 次一致 | 通过 |
+| 候选徽章 Camo 实测 | komarev / hits.sh / laobi / badge.io / glitch / seeyoufarm / u8views | 找出 GitHub 可代理的替代服务 | hits.sh 200、laobi 200、komarev 404；其余不可用 | 通过 |
+| 新徽章端点校验 | `hits.sh` 参数 URL | 有效图片且可被代理 | 直连 200 `image/svg+xml`，Camo 200 1,277 字节，`xmllint` 通过 | 通过 |
+| 新徽章视觉核验 | 深/浅背景无头 Chrome 渲染 | 与原 plastic 风格一致 | 100×18，标签与计数清晰、无裁切 | 通过 |
 
 ## 错误日志
 | 时间戳 | 错误 | 尝试次数 | 解决方案 |
@@ -195,6 +199,7 @@
 | 2026-07-31 | Headless Chrome 初次“浅色”截图仍选择 dark media source | 1 | 识别为宿主色彩偏好；显式替换每个 `<picture>` 的 light/dark source 后分别重渲染 |
 | 2026-07-31 | 完成审计将 WeChat GitHub blob 展示页误判为非 JPEG 故障 | 1 | 修正验证条件：展示页应为有效 HTML，再单独请求 raw 图片确认 JPEG 内容 |
 | 2026-09-23 | 活动图整块空白，初判为 README/参数问题 | 1 | 直接请求端点发现 HTTP 402 `DEPLOYMENT_DISABLED`，确认是服务方停用部署，改为自托管方案 |
+| 2026-10-22 | Profile Views 破图，但直连 komarev 仍返回 200 有效 SVG | 1 | 改用线上 Profile HTML 中的真实 Camo URL 复测，得到 404 `Cannot proxy the given URL`，确认失败点在 GitHub 代理重抓 |
 
 ## 会话：2026-09-23
 
@@ -203,14 +208,31 @@
 - 详情见上方「阶段 8」条目。
 - 关键结论：活动图不再依赖任何第三方图床；`AGENTS.md` / `CLAUDE.md` 改为纳入 Git 跟踪。
 
+## 会话：2026-10-22
+
+### 阶段 9：修复 Profile Views 徽章破图
+- **状态：** in_progress（本地修复与验证完成，待推送后线上复核）
+- 执行的操作：
+  - 复现用户截图中的 Profile Views 破图：直接请求 `komarev.com/ghpvc/` 仍返回 HTTP 200 与 1,015 字节有效 SVG（计数 547），说明服务本身在线。
+  - 从 `https://github.com/kevinlasnh` 渲染 HTML 取到该徽章的真实 Camo URL，请求得到 HTTP 404 `Cannot proxy the given URL`，连续 3 次一致，确认失败点在 GitHub Camo 重抓阶段。
+  - 核对上游 `antonkomarev/github-profile-views-counter` issue #122（2026-10-18 报告，仍未关闭），其他用户遇到完全相同现象，README 侧无法修复。
+  - 用 GitHub Markdown API 批量生成候选徽章的 Camo URL 并逐个实测：komarev 404、hits.sh 200、laobi 200；visitorbadge.io 被 Cloudflare 挑战、glitch 410、seeyoufarm TLS 失败、u8views 返回 `User not found`。
+  - 选择 `hits.sh` 作为替代：相同 plastic 造型与参数（`label` / `color=181717` / `style=plastic`），18px 高，与 komarev 视觉几乎一致。
+  - 修改 `README.md` 访问量 `<img>` 的 `src`，保留 `height="18"` 与 `alt="Profile Views"`；Camo 与直连均返回 HTTP 200 有效 SVG，`xmllint` 通过。
+  - 用无头 Chrome 在 `#0d1117` 与白底分别渲染，确认标签、计数清晰且无裁切，与原徽章风格一致。
+  - 推送前 `git pull --rebase` 整合远端 26 个 bot 卡片提交，改动文件无交集，无冲突。
+- 创建/修改的文件：
+  - `README.md`（Profile Views 徽章来源）
+  - `task_plan.md`、`findings.md`、`progress.md`（增量更新）
+
 ## 五问重启检查
 | 问题 | 答案 |
 |------|------|
-| 我在哪里？ | 阶段 8 已完成，等待提交与推送 |
-| 我要去哪里？ | 提交本轮活动图修复与忽略口径调整，push 后核验 Actions 与线上渲染 |
-| 目标是什么？ | 修复活动图不显示，并按全局规则调整 `.gitignore` 的 Agent Markdown 口径 |
-| 我学到了什么？ | 见 `findings.md` |
-| 我做了什么？ | 见上方记录 |
+| 我在哪里？ | 阶段 9 本地修复与验证已完成，等待提交与推送 |
+| 我要去哪里？ | 提交 README 修复与 PWF 记录，push 后复核线上 Camo 与 Profile 渲染 |
+| 目标是什么？ | 修复 Profile Views 破图，并按要求记录进度后推送 |
+| 我学到了什么？ | 见 `findings.md`（Camo 复测方法、候选服务实测结果） |
+| 我做了什么？ | 见上方 2026-10-22 记录 |
 
 ---
 *每个阶段完成后或遇到错误时更新此文件*

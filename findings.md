@@ -84,6 +84,12 @@
 - X、Email、WeChat 三个联系方式链接均存在；WeChat GitHub 展示页返回 HTTP 200 HTML，底层 raw 二维码返回 HTTP 200 `image/jpeg`，大小 120,884 字节。线上本地图片引用均被 GitHub 正确展开到仓库 `raw/main` 路径。
 - 当前线上 8 个唯一仓库本地 SVG（4 张头尾主题横幅、`github` / `github_dark` 两类 Stats 各 2 张）全部经 GitHub raw 路径返回 HTTP 200 且 XML 有效；远端 README blob SHA 继续与 `origin/main` 一致。
 - 从实时 Profile HTML 提取 README 文章后重新执行确定性浅色/深色 Chrome 渲染，两套主题下所有展示组件均清晰完整；未发现用户截图中的 Stats 限流卡、Trophy 破图、Activity Graph 获取失败或 Tech Stack 深色不可见问题。临时审计文件已清理。
+- 2026-10-22 用户截图显示 Profile Views 只剩破图图标与 alt 文本。直接 `curl` komarev 端点仍返回 HTTP 200 与 1015 字节有效 SVG（计数 547），说明“服务本身活着”与“GitHub 能否渲染”是两个独立条件。
+- 从 `https://github.com/kevinlasnh` 渲染 HTML 取到该徽章的真实 Camo URL 后请求，得到 HTTP 404 且响应体为 `Cannot proxy the given URL`；重复 3 次结果一致，确认失败点在 GitHub Camo 重新抓取阶段，而非 README 语法或用户本地网络。
+- 上游 `antonkomarev/github-profile-views-counter` issue #122（2026-10-18 创建，仍未关闭）记录了同一现象：其他用户的徽章在 GitHub 上同样返回 `Cannot proxy the given URL`，属服务端与 GitHub 代理之间的兼容问题，README 侧无法修复。
+- 逐个用 GitHub Markdown API（`POST /markdown`）把候选徽章渲染成 Camo URL 再实际请求：`komarev.com` 404，`hits.sh` 200（1277 字节），`visitor-badge.laobi.icu` 200（1316 字节）；`api.visitorbadge.io` 被 Cloudflare 挑战页拦截，`profile-counter.glitch.me` 410，`hits.seeyoufarm.com` TLS 握手失败，`u8views.com/github/kevinlasnh` 返回 `User not found`。
+- `hits.sh` 的 SVG 结构（18px 高、圆角 4、同款顶部高光渐变、深色底）与 komarev plastic 样式几乎一致，且支持 `label` / `color` / `style=plastic` 参数，因此选它做替代；Camo 与直连双重验证均为 200 且 `xmllint` 通过。
+- 迁移代价：访问计数从 547 重新从 0 开始，两个服务的计数互不兼容；`hits.sh` 与 komarev 一样是第三方免费服务，未来仍可能失效，届时同样先从 Camo 响应判断是服务问题还是 README 问题。
 
 ## 技术决策
 | 决策 | 理由 |
@@ -105,6 +111,7 @@
 | 生成器保持零依赖、零凭据 | 只用 Node 内置 `fetch`，数据取自 GitHub 公开 contributions 页面；CI 不装 npm 包，也不需要 PAT/Secret |
 | 根 `AGENTS.md` / `CLAUDE.md` 改为纳入 Git 跟踪 | 与全局 AGENTS.md「仓库根 agent markdown 默认纳入跟踪」一致；原 `/AGENTS.md`、`/CLAUDE.md` 忽略规则已移除 |
 | `.brv/` 写成显式忽略条目 | 虽已被 `.*/` 覆盖，但显式记录可审计，并防止将来收窄隐藏目录规则后误跟踪本地记忆树 |
+| Profile Views 改用 `hits.sh` | komarev 已被 GitHub Camo 拒绝代理且上游未修复；hits.sh 参数与视觉风格一致，并同时通过 Camo 与直连验证 |
 
 ## 遇到的问题
 | 问题 | 解决方案 |
@@ -123,6 +130,8 @@
 | 自托管若新开一条工作流会破坏 `output` 分支 | 两条工作流都发布到 `output` 且各自只推送自己的 `build_dir`；解法是把两类产物放进同一个 `dist/` 由一次发布完成 |
 | 推送顶端提交带 `[skip ci]` 会跳过整次推送的工作流 | GitHub 按 push 的顶端提交消息判定；`ff7a0e43` 虽只是 PWF 文档提交，仍导致修复提交也没触发工作流，需补推一个无标记的提交 |
 | `gh run list` 存在列表缓存滞后，push 后长时间查不到新 run | 用 `--json headSha` 过滤并稍后复查即可看到；不要据此判定工作流未触发 |
+| 用户截图里 Profile Views 破图，但直连 komarev 仍返回 200 | 不能据此判定服务正常；应从线上 Profile HTML 取真实 Camo URL 复测，结果 404 `Cannot proxy the given URL`，问题在代理重抓阶段 |
+| 候选访问计数器大多无法直接替换 | 统一用 Markdown API 生成 Camo URL 再实测：仅 hits.sh 与 laobi 通过；visitorbadge.io 被 Cloudflare 挑战、glitch 410、seeyoufarm TLS 失败、u8views 返回 `User not found` |
 
 ## 资源
 - 本地 Git 仓库及其受控文件、提交历史和配置。
@@ -131,6 +140,7 @@
 - JPG 微信名片已视觉确认；5 个动态 SVG 已通过 Chrome 临时渲染帧确认视觉方向、浅深色配色和绘制动画。临时预览已删除，仓库未产生资源改动。
 - 用户提供的 GitHub 深色主题截图显示：本地头尾波浪、动态欢迎语、访问量、贡献蛇、Email/WeChat badge 可见；两张 GitHub Stats 均返回 “Something went wrong / Downtime due to GitHub API rate limiting”；GitHub Trophy 是破图；Activity Graph 返回 “Can't fetch any contribution. Please check your username”；技术栈首行部分图标在深色背景下对比度很低；X badge 的图形也需进一步确认。
 - 2026-09-23 活动图视觉核验：自托管生成的两张 SVG 分别在 `#ffffff` 与 `#0d1117` 背景下用无头 Chrome 渲染，浅色版（蓝线 + 浅蓝面积）与深色版（青蓝线 + 深蓝面积）均清晰可读；Y 轴 0–75 刻度、月份 `Sep…Sep` 标签、网格线与最近 14 天数据点显示正常，无破图或低对比度。数据为 368 天、合计 1616 次贡献、单日峰值 75 次。
+- 2026-10-22 Profile Views 视觉核验：`hits.sh` 徽章在 `#0d1117` 与白底上用无头 Chrome 渲染，深灰标签 + 黑色计数的 plastic 造型与原 komarev 徽章一致（100×18），文字清晰、无裁切；对照渲染的 komarev 徽章为 110×18，宽度差异来自计数位数，不影响排版。
 
 ---
 *每执行2次查看/浏览器/搜索操作后更新此文件*
